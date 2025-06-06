@@ -70,3 +70,34 @@ The main entry point is `main.py`. You can run the agent on predefined benchmark
 
 ```bash
 python main.py --task <task_name>
+```
+Available tasks are defined in `benchmark/tasks.py`.
+
+### Example: Running Task 1
+
+Task 1 requires the agent to import a function from `utilities.py` and call it in `main_app.py`.
+
+This command will:
+1. Set up the benchmark workspace.
+2. Load the CodeLlama-7b model.
+3. Initialize the ReAct agent with all tools.
+4. Run the agent to solve Task 1, showing its thought process.
+5. Print the final state of the modified file (`main_app.py`).
+
+```bash
+python main.py --task simple_import_and_call
+```
+The agent's output, including its thoughts and actions, will be printed to the console. The final generated code in `benchmark_workdir/main_app.py` will be displayed at the end.
+
+## Project Structure
+- `main.py`: Main script to run the agent.
+- `src/code_agent/`: Core Python package for the agent.
+- `llm.py`: Handles loading the Hugging Face LLM with 4-bit quantization.
+- `agent.py`: Contains the ReAct agent prompt and creation logic.
+- `workspace.py`: Manages the file system interactions within the benchmark directory.
+- `tools/`: Contains all the individual tool implementations.
+- `benchmark/`: Contains the setup logic and task definitions for the micro-benchmark.
+- `tests/`: Includes basic unit tests for the tools.
+
+## Reference
+This implementation is based on the concepts and architecture described in: Zhang, K., Li, J., Li, G., Shi, X., & Jin, Z. (2024). CODEAGENT: Enhancing Code Generation with Tool-Integrated Agent Systems for Real-World Repo-level Coding Challenges. arXiv preprint arXiv:2401.07339.

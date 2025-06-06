@@ -1,0 +1,16 @@
+# Core dependencies for LLM, Agent, and Quantization
+transformers
+accelerate
+bitsandbytes
+langchain
+langchain-huggingface
+langchain-core
+
+# Tool-specific dependencies
+black
+
+# Optional dependencies for extending the WebSearchTool (not required for mock)
+tavily-python
+langchain-community
+beautifulsoup4
+requests

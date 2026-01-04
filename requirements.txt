@@ -1,0 +1,27 @@
+# Core dependencies for CodeAgent
+transformers>=4.52.0
+pandas>=2.2.0
+accelerate>=1.7.0
+bitsandbytes>=0.46.0
+langchain>=0.3.25
+langchain-huggingface>=0.2.0
+langchain-openai
+langchain-google-genai
+langchain-community
+sentencepiece>=0.2.0
+rank-bm25>=0.2.2
+tree-sitter>=0.21.3
+black>=24.4.0
+torch>=2.0.0
+pydantic>=2.0.0
+duckduckgo-search
+requests
+beautifulsoup4
+tqdm
+numpy
+
+# Optional: for HumanEval benchmark
+# human-eval>=1.0.3
+
+# Development dependencies
+pytest>=7.0.0

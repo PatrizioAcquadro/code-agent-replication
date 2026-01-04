@@ -1,0 +1,81 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codeagent"
+version = "0.1.0"
+description = "CodeAgent: An LLM-based agent framework for repository-level code generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Patrizio Acquadro"}
+]
+keywords = ["llm", "code-generation", "agents", "langchain"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "transformers>=4.52.0",
+    "pandas>=2.2.0",
+    "accelerate>=1.7.0",
+    "bitsandbytes>=0.46.0",
+    "langchain>=0.3.25",
+    "langchain-huggingface>=0.2.0",
+    "langchain-openai",
+    "langchain-google-genai",
+    "langchain-community",
+    "sentencepiece>=0.2.0",
+    "rank-bm25>=0.2.2",
+    "tree-sitter>=0.21.3",
+    "black>=24.4.0",
+    "torch>=2.0.0",
+    "pydantic>=2.0.0",
+    "duckduckgo-search",
+    "requests",
+    "beautifulsoup4",
+    "tqdm",
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov",
+    "mypy",
+    "ruff",
+]
+humaneval = [
+    "human-eval>=1.0.3",
+]
+
+[project.urls]
+Repository = "https://github.com/PatrizioAcquadro/code-agent-replication"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+codeagent = ["py.typed"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
